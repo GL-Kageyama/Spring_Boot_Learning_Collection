@@ -1,0 +1,57 @@
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.19 Homebrew
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+
+mysql> SET PASSWORD FOR 'root'@'localhost' = 'pwd';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE DATABASE testdb;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE testdb;
+Database changed
+
+mysql> CREATE TABLE `customer_table` (
+    -> `cus_Num` bigint(20) NOT NULL AUTO_INCREMENT,
+    -> `cus_Name` varchar(255) DEFAULT NULL,
+    -> `cus_Address` varchar(255) DEFAULT NULL,
+    -> `cus_Telno` varchar(255) DEFAULT NULL,
+    -> PRIMARY KEY (`Cus_Num`)
+    -> ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+Query OK, 0 rows affected, 2 warnings (0.00 sec)
+
+mysql> INSERT INTO customer_table
+    -> (`cus_Name`, `cus_Address`, `cus_Telno`)
+    -> VALUES
+    -> ('Alex', 'California', 00000), ('Dana', 'Florida', 11111), ('Jamie', 'Iowa', 22222), ('Morgan', 'Kansas', 33333), ('Robin', 'Idaho', 44444), ('Terry', 'Alaska', 55555), ('Chris', 'Texas', 66666), ('Pat', 'Vermont', 77777), ('Tracey', 'Wisconsin', 88888), ('Ronnie', 'Utah', 99999);
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM customer_table;
++---------+----------+-------------+-----------+
+| cus_Num | cus_Name | cus_Address | cus_Telno |
++---------+----------+-------------+-----------+
+|       1 | Alex     | California  | 0         |
+|       2 | Dana     | Florida     | 11111     |
+|       3 | Jamie    | Iowa        | 22222     |
+|       4 | Morgan   | Kansas      | 33333     |
+|       5 | Robin    | Idaho       | 44444     |
+|       6 | Terry    | Alaska      | 55555     |
+|       7 | Chris    | Texas       | 66666     |
+|       8 | Pat      | Vermont     | 77777     |
+|       9 | Tracey   | Wisconsin   | 88888     |
+|      10 | Ronnie   | Utah        | 99999     |
++---------+----------+-------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> 

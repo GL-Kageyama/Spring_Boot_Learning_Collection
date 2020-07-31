@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Spring Boot Sample 3</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h3>Customer Information</h3>
+	<form action="/post">
+		<table>
+			<!-- 画面上部に表示させるための、Name, Address, Telno文字列 -->
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Telno</th>
+			</tr>
+			<!-- 10行のName, Address, Telnoの入力欄
+				 値がどこに入っているのかを判別させるために、menbers[*].の添え字が必要 -->
+			<tr>
+				<td><input type="text" name="members[0].name"></td>
+				<td><input type="text" name="members[0].address"></td>
+				<td><input type="text" name="members[0].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[1].name"></td>
+				<td><input type="text" name="members[1].address"></td>
+				<td><input type="text" name="members[1].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[2].name"></td>
+				<td><input type="text" name="members[2].address"></td>
+				<td><input type="text" name="members[2].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[3].name"></td>
+				<td><input type="text" name="members[3].address"></td>
+				<td><input type="text" name="members[3].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[4].name"></td>
+				<td><input type="text" name="members[4].address"></td>
+				<td><input type="text" name="members[4].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[5].name"></td>
+				<td><input type="text" name="members[5].address"></td>
+				<td><input type="text" name="members[5].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[6].name"></td>
+				<td><input type="text" name="members[6].address"></td>
+				<td><input type="text" name="members[6].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[7].name"></td>
+				<td><input type="text" name="members[7].address"></td>
+				<td><input type="text" name="members[7].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[8].name"></td>
+				<td><input type="text" name="members[8].address"></td>
+				<td><input type="text" name="members[8].telno"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="members[9].name"></td>
+				<td><input type="text" name="members[9].address"></td>
+				<td><input type="text" name="members[9].telno"></td>
+			</tr>
+		</table>
+		<!-- Sendボタン -->
+		<button type="submit">Send</button>
+	</form>
+	<table>
+		<!-- 送信された文字列を表示させるためのループ処理
+			 拡張for文と同等の記述方法であり、変数rowに格納された文字を順次表示していく -->
+		<tr th:each="row : ${result}">
+			<td th:text="${row.name}"></td>
+			<td th:text="${row.address}"></td>
+			<td th:text="${row.telno}"></td>
+		</tr>
+	</table>
+</body>
+</html>

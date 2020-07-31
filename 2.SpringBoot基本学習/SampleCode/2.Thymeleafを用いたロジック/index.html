@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Spring Boot Sample 2</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h2>Tweet Message</h2>
+	<form action="/callResponse">
+		<td>Name</td>
+		<!-- 名前入力用テキストボックス -->
+		<input type="text" name="name"><br/>
+		<td>Tweet</td>
+		<!-- Tweet入力用テキストボックス -->
+		<input type="text" name="tweet"><br/>
+		<!-- 送信ボタン -->
+		<button type="submit">Send</button>
+	</form>
+	<!-- Thymeleafのif文を用いたロジック
+		 responseに値があるかを判定して、Trueの場合は表示を行う -->
+	<div th:if="${response}">
+		<h2 th:text="'Hello. I am ' + ${response.name} + '.'"></h2>
+		<h2 th:text="${response.tweet}"></h2>
+	</div>
+</body>
+</html>

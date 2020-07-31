@@ -1,0 +1,6 @@
+$ MySQL.server start
+Starting MySQL
+.. SUCCESS! 
+$ MySQL.server stop
+Shutting down MySQL
+.. SUCCESS! 

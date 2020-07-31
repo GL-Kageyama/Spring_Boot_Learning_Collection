@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  	<meta charset="UTF-8">
+	<title>Spring Boot Sample DB change</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h3>Customer Information Chenge</h3>
+	<form th:action="@{/update}" th:object="${customerUpdate}" th:method="post">
+		<!-- 変更対象のID -->
+		<input type="hidden" th:field="*{num}" />
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Telno</th>
+			</tr>
+			<!-- 変更後の顧客情報入力欄 -->
+			<tr>
+				<td><input type="text" th:field="*{name}"></td>
+				<td><input type="text" th:field="*{address}"></td>
+				<td><input type="text" th:field="*{telno}"></td>
+			</tr>
+		</table>
+		<!-- 保存ボタン -->
+		<button type="submit">Save</button>
+	</form>
+	<!-- 戻るボタン -->
+	<input type="button" onclick="history.back()" value="Retuen">
+</body>
+</html>

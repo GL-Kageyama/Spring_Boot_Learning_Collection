@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Spring Boot Sample MyBatis</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h2>Customer Information</h2>
+	<form action="/get">
+		<td>Primary Key</td>
+		<!-- プライマリーキーの入力欄 -->
+		<input type="text" name="key"><br/>
+		<!-- Getボタン -->
+		<button type="submit">Get</button>
+	</form>
+	<p>----------------------------------------</p>
+	<!-- 顧客情報の表示欄 -->
+  	<table>
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Telno</th>
+		</tr>
+		<!-- 変数customerInfoに値がある場合に実行される -->
+ 		<div th:if="${customerInfo}">
+			<tr>
+				<!-- DBからの取得情報 -->
+				<td th:text="${customerInfo.cusName}"></td>
+				<td th:text="${customerInfo.cusAddress}"></td>
+				<td th:text="${customerInfo.cusTelno}"></td>
+			</tr>
+		</div>
+	</table>
+</body>
+</html>

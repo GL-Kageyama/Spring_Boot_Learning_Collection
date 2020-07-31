@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Spring Boot Sample 4</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h3>Customer Information</h3>
+	<form action="/post">
+		<table>
+			<!-- 画面上部に表示させるための、Name, Address, Telno文字列 -->
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Telno</th>
+			</tr>
+			<!-- members[*].の、「*」部分を動的に変更させるための処理
+				 ${num.index}部分が、ループ処理により0から9に順次インクリメントしていく -->
+			<tr th:each="member, num : ${paramObject.members}">
+				<td><input type="text" th:name="'members[' + ${num.index} + '].name'"></td>
+				<td><input type="text" th:name="'members[' + ${num.index} + '].address'"></td>
+				<td><input type="text" th:name="'members[' + ${num.index} + '].telno'"></td>
+			</tr>
+		</table>
+		<!-- Sendボタン -->
+		<button type="submit">Send</button>
+	</form>
+	<table>
+		<!-- 送信された文字列を表示させるためのループ処理 -->
+		<tr th:each="row : ${result}">
+			<td th:text="${row.name}"></td>
+			<td th:text="${row.address}"></td>
+			<td th:text="${row.telno}"></td>
+		</tr>
+	</table>
+</body>
+</html>

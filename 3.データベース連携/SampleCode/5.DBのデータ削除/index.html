@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  	<meta charset="UTF-8">
+	<title>Spring Boot Sample DB delete</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h3>Customer Information Delete</h3>
+	<table>
+		<tr>
+			<th></th><!-- Deleteリンクのための空要素 -->
+			<th>Name</th>
+			<th>Address</th>
+			<th>Telno</th>
+		</tr>
+		<!-- DBから取得した情報を、ループ処理で表示 -->
+		<tr th:each="cus : ${customerlist}" th:object="${cus}">
+			<!-- Deleteリンク -->
+			<td><a th:href="@{/{num}/delete(num=*{num})}" style="text-decoration:none;">×</a></td>
+			<td th:text="*{name}"></td>
+			<td th:text="*{address}"></td>
+			<td th:text="*{telno}"></td>
+		</tr>
+	</table>
+</body>
+</html>

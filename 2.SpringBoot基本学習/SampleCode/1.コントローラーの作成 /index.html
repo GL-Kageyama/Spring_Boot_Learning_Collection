@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Spring Boot Sample 1</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h2>Tweet Message</h2>
+	<form action="/callResponse">
+		<td>Name</td>
+		<!-- 名前入力用テキストボックス -->
+		<input type="text" name="name"><br/>
+		<td>Tweet</td>
+		<!-- Tweet入力用テキストボックス -->
+		<input type="text" name="tweet"><br/>
+		<!-- 送信ボタン -->
+		<button type="submit">Send</button>
+	</form>
+	<!-- Java側で作成された文字列を、Thymeleafを用いて表示 -->
+	<h2 th:text="${helloResponse}"></h2>
+	<h2 th:text="${tweetResponse}"></h2>
+</body>
+</html>

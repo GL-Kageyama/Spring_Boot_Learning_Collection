@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  	<meta charset="UTF-8">
+	<title>Spring Boot Sample DB delete</title>
+</head>
+<body>
+	<!-- タイトル表示 -->
+	<h3>Customer Information Delete</h3>
+	<form th:action="@{/delete}" th:object="${customerDelete}" th:method="post">
+		<!-- 削除対象のID -->
+		<input type="hidden" th:field="*{num}" />
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Telno</th>
+			</tr>
+			<!-- 削除対象の顧客情報 -->
+			<tr>
+				<td th:text="*{name}"></td>
+				<td th:text="*{address}"></td>
+				<td th:text="*{telno}"></td>
+			</tr>
+		</table>
+		<!-- 削除ボタン -->
+		<button type="submit">Delete</button>
+	</form>
+	<!-- 戻るボタン -->
+	<input type="button" onclick="history.back()" value="Retuen">
+</body>
+</html>

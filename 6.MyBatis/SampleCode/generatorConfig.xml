@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="testdb"  targetRuntime="MyBatis3">
+        <property name="autoDelimitKeyWords" value="true" />
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+        <jdbcConnection
+            connectionURL="jdbc:mysql://localhost:3306/testdb"
+            driverClass="com.mysql.cj.jdbc.Driver"
+            password="pwd"
+            userId="root" />
+        <javaModelGenerator
+            targetPackage="com.example.demo"
+            targetProject="SpringSampleMyBatis/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <sqlMapGenerator
+            targetPackage="com.example.demo"
+            targetProject="SpringSampleMyBatis/src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <javaClientGenerator
+            targetPackage="com.example.demo"
+            targetProject="SpringSampleMyBatis/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <table tableName="customer_table" domainObjectName="Customer"
+            mapperName="CustomerRepository"
+            enableInsert="true"
+            enableSelectByPrimaryKey="true"
+            enableSelectByExample="true"
+            enableUpdateByPrimaryKey="true"
+            enableUpdateByExample="true"
+            enableDeleteByPrimaryKey="true"
+            enableDeleteByExample="true"
+            enableCountByExample="true"
+            selectByExampleQueryId="true"
+            modelType="flat" >
+            <columnRenamingRule searchString="^class$" replaceString="clazz"/>
+            <columnOverride column="cus_Num" delimitedColumnName="true"/>
+            <columnOverride column="cus_Name" delimitedColumnName="true"/>
+            <columnOverride column="cus_Address" delimitedColumnName="true"/>
+            <columnOverride column="cus_Telno" delimitedColumnName="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
